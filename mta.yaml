@@ -1,0 +1,16 @@
+ID: ZZPUBLIC
+_schema-version: '2.1'
+version: 0.0.1
+
+modules:
+ - name: ZZP
+   type: hdb
+   path: ZZP
+   requires:
+    - name: hdi_ZZP
+
+resources:
+ - name: hdi_ZZP
+   properties:
+      hdi-container-name: ${service-name}
+   type: com.sap.xs.hdi-container
