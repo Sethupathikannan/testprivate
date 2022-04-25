@@ -1,0 +1,18 @@
+{
+  "role": {
+    "name": "ZZPUBLIC.ZZPRIVATE::cross",
+    "object_privileges": [
+      {
+        "name": "ZZPUBLIC.ZZPRIVATE::test",
+        "type": "TABLE",
+        "privileges": [
+          "UPDATE",
+          "SELECT",
+          "INSERT",
+          "DELETE",
+          "ALTER"
+        ]
+      }
+    ]
+  }
+}

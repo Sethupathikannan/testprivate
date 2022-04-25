@@ -1,0 +1,22 @@
+{
+  "ZZPUBLIC.ZZP::SCHEMA": {
+    "target": {
+      "object": "L_TABLE",
+      "schema": "TEST"
+    }
+  },
+  "ZZPUBLIC.ZZP::OUTSIDE": {
+    "target": {
+      "object": "ZLOCALBRANCH.remote::sample",
+      "schema": "ZLOCALBRANCH_HDI_REMOTE_1",
+      "database": "H01"
+    }
+  },
+  "ZZPUBLIC.ZZP::CROSSCON": {
+    "target": {
+      "object": "ZZPUBLIC.ZZPRIVATE::test",
+      "schema": "ZZPUBLIC_HDI_ZZPRIVATE_1",
+      "database": "H01"
+    }
+  }
+}

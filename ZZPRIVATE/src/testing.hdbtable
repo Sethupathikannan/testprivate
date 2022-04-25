@@ -1,0 +1,5 @@
+column table "ZZPUBLIC.ZZPRIVATE::test"(
+	"ID1" INTEGER,
+	"NAME" VARCHAR(30),
+	"AGE" INTEGER
+)

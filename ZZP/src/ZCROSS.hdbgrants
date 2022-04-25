@@ -1,0 +1,10 @@
+{
+"ServiceName_3": {
+"object_owner" : {
+"container_roles":["ZZPUBLIC.ZZPRIVATE::cross"]
+},
+"application_user" : {
+"container_roles":["ZZPUBLIC.ZZPRIVATE::cross"]
+}
+}
+} 

@@ -1,16 +1,54 @@
 ID: ZZPUBLIC
 _schema-version: '2.1'
 version: 0.0.1
-
 modules:
- - name: ZZP
-   type: hdb
-   path: ZZP
-   requires:
-    - name: hdi_ZZP
-
+  - name: ZZP
+    type: hdb
+    path: ZZP
+    requires:
+      - name: hdi_ZZP
+        properties:
+          TARGET_CONTAINER: '~{hdi-container-name}'
+      - name: cross-container-service-1
+        group: SERVICE_REPLACEMENTS
+        properties:
+          key: ServiceName_1
+          service: '~{the-service-name}'
+      - name: cross-container-service-2
+        group: SERVICE_REPLACEMENTS
+        properties:
+          key: ServiceName_2
+          service: '~{the-service-name}'
+      - name: hdi_ZZPRIVATE
+        properties:
+          key: ServiceName_3
+          service: '~{hdi-container-name_2}'
+        group: SERVICE_REPLACEMENTS
+  - name: ZZPRIVATE
+    type: hdb
+    path: ZZPRIVATE
+    requires:
+      - name: hdi_ZZPRIVATE
+        properties:
+          TARGET_CONTAINER: '~{hdi-container-name_2}'
 resources:
- - name: hdi_ZZP
-   properties:
-      hdi-container-name: ${service-name}
-   type: com.sap.xs.hdi-container
+  - name: hdi_ZZP
+    properties:
+      hdi-container-name: '${service-name}'
+    type: com.sap.xs.hdi-container
+  - name: cross-container-service-1
+    parameters:
+      service-name: TEST_PROVIDER
+    properties:
+      the-service-name: '${service-name}'
+    type: org.cloudfoundry.existing-service
+  - name: cross-container-service-2
+    parameters:
+      service-name: SETHUPATHI-ctr4aq6hynguudwz-ZLOCALBRANCH-hdi_remote
+    properties:
+      the-service-name: '${service-name}'
+    type: org.cloudfoundry.existing-service
+  - name: hdi_ZZPRIVATE
+    properties:
+      hdi-container-name_2: '${service-name}'
+    type: com.sap.xs.hdi-container
